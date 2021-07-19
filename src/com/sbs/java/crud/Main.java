@@ -34,17 +34,32 @@ public class Main {
 				String title = sc.nextLine();
 				System.out.printf("내용 : ");
 				String body = sc.nextLine();
-				
+
 				Article article = new Article(id, title, body);
 				articles.add(article);
 
 				System.out.printf("%d번글이 생성되었습니다.\n", id);
 
 			} else if (command.equals("article list")) {
-				System.out.println("게시물이 없습니다.");
+
+				if (articles.size() == 0) {
+					System.out.println("게시글이 없습니다.");
+					continue;
+				}
+				System.out.print("번호 | 제목\n");
+				
+				for (int i = articles.size() - 1; i >= 0; i--) {
+					Article article = articles.get(i);
+
+					System.out.printf("%d   |    %s\n", article.id, article.title);
+				}
+				
+				
+				
 			} else {
 				System.out.printf("%s(은)는 존재하지 않는 명령어 입니다.\n", command);
 			}
+
 		}
 
 		sc.close();
