@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import com.sbs.java.crud.controller.ArticleController;
 import com.sbs.java.crud.controller.Controller;
+import com.sbs.java.crud.controller.ExportController;
 import com.sbs.java.crud.controller.MemberController;
 
 public class App {
@@ -18,9 +19,11 @@ public class App {
 
 		MemberController memberController = new MemberController(sc);
 		ArticleController articleController = new ArticleController(sc);
+		ExportController exportController = new ExportController(sc);
 
 		articleController.makeTestData();
 		memberController.makeTestData();
+		exportController.makeTestData();
 
 		while (true) {
 			System.out.printf("명령어) ");
@@ -52,6 +55,8 @@ public class App {
 				controller = articleController;
 			} else if (controllerName.equals("member")) {
 				controller = memberController;
+			} else if (controllerName.equals("export")) {
+				controller = exportController;
 			}
 
 			else {
