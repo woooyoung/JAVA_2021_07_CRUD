@@ -29,7 +29,6 @@ public class ArticleService {
 
 	public void remove(Article foundArticle) {
 		articleDao.remove(foundArticle);
-
 	}
 
 }
